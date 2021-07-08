@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/salt
+
+class ToDoList{
+    main()
+    start()
+    + save()
+    + load()
+}
+
+class List{
+    'only one list needs to be managed
+    'stores at least 100 items
+    + add_item()
+    + remove_item()
+
+    'clear list needs to remove all items from list
+    + clear_list()
+    + edit_description()
+    + edit_dueDate()
+    + mark_compete()
+
+    'display options
+    + display_all()
+    + display_incomplete()
+    + display_complete()
+}
+
+class Item{
+    '1-256 chars in length
+    -description
+    'given to user as: yyyy-mm-dd
+    -dueDate
+
+}
+
+ToDoList*--Item
+@enduml

@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ToDoList{
+    main()
+    start()
+}
+
+javafx.Application<|--ToDoList
+
+class ToDoListController{
+    'methods
+    + add_list()
+    + remove_list()
+
+}
+
+ToDoList -- ToDoListController
+class List{
+    'attributes
+    - Title
+    - Lists: ArrayList<items>
+
+    'Methods
+    + save_items_multiple_list()
+    + save_items_single_list()
+    + edit_title()
+    + add_item()
+    + remove_item()
+    + display_items()
+    + display_incomplete()
+    + display_complete()
+    + load_list_single()
+    + load_multiple_list()
+    + mark_complete()
+
+}
+
+class ManageItems{
+    'methods
+    + edit_title()
+    + edit_due_date()
+    + edit_description()
+}
+
+List -- ManageItems
+
+class Item{
+    - dueDate
+    - completionStatus
+    - description
+
+}
+
+ToDoList *-- List
+List *-- Item
+@enduml
