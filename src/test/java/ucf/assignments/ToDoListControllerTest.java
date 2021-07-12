@@ -1,33 +1,48 @@
 package ucf.assignments;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class ToDoListControllerTest {
 
     @Test
-    void add_list() {
-        //manually add toDoList to arrayList
-        //generate title in textfield
-        //add second list to arrayList of identical title
-        //assert that the elements are equal at both indexes
-
+    void open_item_add() {
+        //press button
+        //verify window opens
     }
 
     @Test
-    void remove_multiple_lists() {
-        //create multiple todolists
-        //get the multiple ids in an array
-        //remove lists with the ids
-        //create second list of the same items sin the ones that are to be removed
-        //assert that both the first and second list are equal
+    void remove_item() {
+        //create array with two items
+        //set index modifier value
+        //press remove button
+        //assert index size = 1
     }
 
     @Test
-    void remove_single_list(){
-        //create single toDoList
-        //get id of list
-        //remove selected id
-        //create second to do list with same title
-        //assert that both are equal
+    void clear_list() {
+        //create array with two items
+        //press clear list button
+        //assert value = 0
+    }
+
+    @Test
+    void save_list() {
+        //press button
+        //verify it asks for directory
+    }
+
+    @Test
+    void display() {
+        //create arrayList
+        //press All Tasks
+        //verify all are empty
+    }
+
+    @Test
+    void mark_complete() {
+        //create item in arraylist
+        //press mark_complete
+        //verify arraylist completion status is true
     }
 }

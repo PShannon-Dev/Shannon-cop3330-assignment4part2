@@ -9,37 +9,43 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class ToDoList extends Application {
 
+    public static ArrayList<Item> mainList = new ArrayList<Item>(100);
+
     public static void main(String[] args) {
         launch(args);
-
-        //create file with pathname being on C: drive
-        //try catch for file element
-
-        //create jsonArray containing lists
-
     }
 
-    public void loadFromFile(){
-        //read json file contents
-        //store all elements in array list
+    public boolean createJson(String path){
+        File toDoJson = new File(path);
+
+        //using path create folder
+        return toDoJson.mkdir();
     }
+
+    public static boolean hasDirectory = false;
 
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("ToDoList.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ToDoList.fxml")));
 
             Scene scene = new Scene(root);
 
             primaryStage.setScene(scene);
-            primaryStage.setTitle("ToDoList");
+            primaryStage.setTitle("ToDo List");
             primaryStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 }

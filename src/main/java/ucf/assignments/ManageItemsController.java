@@ -1,39 +1,30 @@
 package ucf.assignments;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 /*
  *  UCF COP3330 Summer 2021 Assignment 4 Solution
  *  Copyright 2021 Paul Shannon
  */
+
 public class ManageItemsController {
 
     @FXML
-    private TextField itemTitle;
+    private TextField newItemDueDate;
 
     @FXML
-    private TextField itemDueDate;
+    private TextArea newItemDescription;
+    public static int indexToEdit;
 
-    @FXML
-    private TextArea itemDescription;
+    public void save_task(ActionEvent actionEvent) {
+        //sets item description value to the new description
+        ToDoList.mainList.get(indexToEdit).setDescription(newItemDescription.toString());
 
-    @FXML
-    private ListView<String> itemList;
+        //sets item due date value to the new due date
+        ToDoList.mainList.get(indexToEdit).setDueDate(newItemDueDate.toString());
 
-
-    public void add_item(javafx.scene.input.MouseEvent mouseEvent) {
-        //create new item in array list
-        //set item title to the textfield entry itemTitle
-        //set item description to the textfield entry item_description
-        //set item due date to the textfield entry itemDueDate
-    }
-
-    public void remove_item(MouseEvent mouseEvent) {
-        //select multiple items
-        //remove selected items from the arraylist using ids
     }
 }
 

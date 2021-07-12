@@ -4,35 +4,62 @@
 class ToDoList{
     main()
     start()
-    + save()
-    + load()
+    + createJson()
+}
+ToDoList -- ToDoListController
+class ToDoListController{
+    - listView
+    - choiceBox
+    - listofdescriptions
+
+    'strings for the dropdown
+    - options[] <String Array>
+
+    'gets directory as string and passes it through to folder and json creation
+    + openAddItemGui(buttonPress))
+    + openEditTaskGui(buttonPress, selectItemFromList)
+    + removeItemFromList(selectItemFromList, (buttonPress))
+    + clearList(buttonPress)
+    + dropdownDisplayMethod()
+    'if directory has not been made, make it
+    + saveList(buttonPress)
+    + markItemComplete(selectItemFromList, (buttonPress))
+
+}
+class DirectoryController{
+    - Prompt
+    - directory
+    + getDirectory()
+    +confirmDirectory()
+}
+ToDoListController -- DirectoryController
+
+class ManageItemsController{
+    -textfieldDescription
+    -textfieldDueDate
+    'make public and static to be accessed by other classes without making an instance of the class
+    +indexForEdit
+
+    +save_task()
 }
 
-class List{
-    'only one list needs to be managed
-    'stores at least 100 items
-    + add_item()
-    + remove_item()
-
-    'clear list needs to remove all items from list
-    + clear_list()
-    + edit_description()
-    + edit_dueDate()
-    + mark_compete()
-
-    'display options
-    + display_all()
-    + display_incomplete()
-    + display_complete()
+class NewItemController{
+    - newdescription
+    - newDueDate
+    + SaveTask()
 }
 
+ToDoListController -- NewItemController
+ToDoListController --Item
+Item *--NewItemController
+ToDoListController -- ManageItemsController
+Item -- ManageItemsController
 class Item{
     '1-256 chars in length
     -description
-    'given to user as: yyyy-mm-dd
+    'given from user as: yyyy-mm-dd
     -dueDate
-
+    -completionStatus
 }
 
-ToDoList*--Item
 @enduml

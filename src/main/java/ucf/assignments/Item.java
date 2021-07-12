@@ -4,18 +4,9 @@ package ucf.assignments;
  *  Copyright 2021 Paul Shannon
  */
 public class Item {
-    private String title;
     private String description;
     private String dueDate;
     private boolean completionStatus;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getDescription() {
         return description;
@@ -33,11 +24,17 @@ public class Item {
         this.dueDate = dueDate;
     }
 
-    public boolean isCompletionStatus() {
+    public boolean isCompleted() {
         return completionStatus;
     }
 
     public void setCompletionStatus(boolean completionStatus) {
+        this.completionStatus = completionStatus;
+    }
+
+    public Item(String description, String dueDate, boolean completionStatus) {
+        this.description = description;
+        this.dueDate = dueDate;
         this.completionStatus = completionStatus;
     }
 }
